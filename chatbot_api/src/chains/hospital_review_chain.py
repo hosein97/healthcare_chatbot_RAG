@@ -14,9 +14,10 @@ from langchain.prompts import (
 
 
 HOSPITAL_QA_MODEL = os.getenv("HOSPITAL_QA_MODEL")
+print('here')
 
 embeddings = HuggingFaceInferenceAPIEmbeddings(api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN"),model_name="sentence-transformers/all-MiniLM-l6-v2")
-
+print('here2')
 
 neo4j_vector_index = Neo4jVector.from_existing_graph(
     embedding=embeddings,
@@ -33,7 +34,7 @@ neo4j_vector_index = Neo4jVector.from_existing_graph(
     ],
     embedding_node_property="embedding",
 )
-
+print('here-21')
 review_template = """Your job is to use patient
 reviews to answer questions about their experience at a hospital. Use
 the following context to answer questions. Be as detailed as possible, but
@@ -57,7 +58,11 @@ review_prompt = ChatPromptTemplate(
 
 repo_id = "HuggingFaceH4/zephyr-7b-beta"
 
+print('here3')
+
 llm = HuggingFaceEndpoint(repo_id=repo_id)
+print('here4')
+
 chat_model = ChatHuggingFace(llm=llm)
 
 reviews_vector_chain = RetrievalQA.from_chain_type(

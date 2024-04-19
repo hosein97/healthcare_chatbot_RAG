@@ -6,6 +6,8 @@ from langchain_community.chat_models.huggingface import ChatHuggingFace
 from langchain.prompts import PromptTemplate
 # import langchain.chains.graph_qa.cypher
 
+
+
 HOSPITAL_QA_MODEL = os.getenv("HOSPITAL_QA_MODEL")
 HOSPITAL_CYPHER_MODEL = os.getenv("HOSPITAL_CYPHER_MODEL")
 

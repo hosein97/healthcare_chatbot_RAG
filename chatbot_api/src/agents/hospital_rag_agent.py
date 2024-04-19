@@ -1,5 +1,8 @@
 import os
 
+
+# print(f'All ENV VARS: {os.environ.items()}')
+
 from langchain_community.llms import HuggingFaceEndpoint #  not working (why does it need text-generation lib at all?!)
 from langchain_community.chat_models.huggingface import ChatHuggingFace
 from langchain.agents import initialize_agent
@@ -10,7 +13,6 @@ from tools.wait_times import (
     get_most_available_hospital,
 )
 from langchain.agents import Tool
-
 
 HOSPITAL_AGENT_MODEL = os.getenv("HOSPITAL_AGENT_MODEL")
 
